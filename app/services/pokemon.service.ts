@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root',
+ providedIn: 'root'
 })
 
 export class PokemonService {
@@ -10,4 +10,8 @@ export class PokemonService {
   imageUrl= "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/";
 
   constructor(private http: HttpClient) {}
+
+  getPokemon(offset = 0) {
+    return this.http.get(`${this.baseUrl}/pokemon`)
+  }
 }
