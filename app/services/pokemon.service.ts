@@ -16,6 +16,11 @@ export class PokemonService {
     return this.http.get(`${this.baseUrl}/pokemon?offset=${offset}&limit=25`).pipe(
       map( result => {
         return result['results'];
+      }),
+      map(pokemons => {
+        pokemons.map((poke, index) => {
+          poke.image = this.getPokeImage(index + offset + 1);
+        })
       })
     )
   }
