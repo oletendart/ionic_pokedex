@@ -18,8 +18,10 @@ export class PokemonService {
         return result['results'];
       }),
       map(pokemons => {
-        pokemons.map((poke, index) => {
+        return pokemons.map((poke, index) => {
           poke.image = this.getPokeImage(index + offset + 1);
+          poke.pokeIndex = offset + index + 1;
+          return poke;
         })
       })
     )
