@@ -19,4 +19,8 @@ export class PokemonService {
       })
     )
   }
+
+  getPokeImage(index) {
+    return `${this.imageUrl}${index}.png`;
+  }
 }
